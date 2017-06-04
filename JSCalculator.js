@@ -9,6 +9,11 @@ var operator = '';
 function main() {
     displayResults()
     document.getElementById('output').innerHTML = result;
+
+    $('#debugButton').click(function() {
+        $('.debugMode').toggle();
+    });
+
     $('#0').on('click', function() {
         resultList.push('0');
         resultString = addItemToString('0');
