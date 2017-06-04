@@ -1,8 +1,33 @@
+/* colors
+    LIGHT SALMON: #F79F79;
+    PEACH-ORANGE: #F7D08A;
+    KEY LIME: #E3F09B;
+    PEWTER BLUE: #87B6A7;
+    UMBER: #5B5941;
+*/
+
+body {
+    background: linear-gradient(to right, #F79F79, #F7D08A);
+}
+
+.button {
+    background-color: #87B6A7;
+}
+
 .button:hover {
     cursor: pointer;
+    background-color: #5B5941; 
 }
 
 td {
     width: 50px;
     text-align: center;
+}
+
+table {
+    margin: auto;
+}
+
+p {
+    text-align: center; 
 }
