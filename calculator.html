@@ -6,8 +6,8 @@
     </head>
     <body>
 
-        <h1> JavaScript Calculator </h1>
-        
+        <p> JavaScript Calculator </p>
+
         <table border="solid">
             <th id="output" colspan="4"> </th>
             <tr>
@@ -21,7 +21,7 @@
                     <div class="button" id="9"> 9 </div> 
                 </td>         
                 <td> 
-                    <div class="button" id="+"> + </div> 
+                    <div class="button" id="add"> + </div> 
                 </td>         
             </tr>
             <tr>
@@ -35,7 +35,7 @@
                     <div class="button" id="6"> 6 </div> 
                 </td>         
                 <td> 
-                    <div class="button" id="-"> - </div> 
+                    <div class="button" id="substract"> - </div> 
                 </td>         
             </tr>
             <tr>
@@ -49,7 +49,7 @@
                     <div class="button" id="3"> 3 </div> 
                 </td>         
                 <td> 
-                    <div class="button" id="*"> * </div> 
+                    <div class="button" id="multiply"> * </div> 
                 </td>         
             </tr>
             <tr>
@@ -57,25 +57,31 @@
                     <div class="button" id="0"> 0 </div> 
                 </td>         
                 <td> 
-                    <div class="button" id="."> . </div> 
+                    <div class="button" id="decimalPoint"> . </div> 
                 </td>         
                 <td> 
-                    <div class="button" id="%"> % </div> 
+                    <div class="button" id="modulus"> % </div> 
                 </td>         
                 <td> 
-                    <div class="button" id="/"> / </div> 
+                    <div class="button" id="divide"> / </div> 
                 </td>         
             </tr>
             <tr>
                 <td colspan="2"> 
-                    <div class="button" id="="> = </div> 
-                </td>         
-                <td colspan="2"> 
                     <div class="button" id="C"> C </div>
-                </td>         
+                </td> 
+                <td colspan="2"> 
+                    <div class="button" id="equals"> = </div> 
+                </td>                 
             </tr>
         </table>
 
+        <p id="result"> </p>
+        <p id="resultString"> </p>
+        <p id="resultList"> </p>
+        <p id="firstNumber"> </p>
+        <p id="secondNumber"> </p>
+        <p id="operator"> </p>
 
         <script src='https://code.jquery.com/jquery-3.1.0.min.js'></script>
         <script src='JSCalculator.js'></script>    
