@@ -12,74 +12,74 @@ function main() {
     $('#0').on('click', function() {
         resultList.push('0');
         resultString = addItemToString('0');
-        displayResults();
+        displayResults(resultString);
     });
 
     $('#1').on('click', function() {
         resultList.push('1');
         resultString = addItemToString('1');
-        displayResults();
+        displayResults(resultString);
    });
 
     $('#2').on('click', function() {
         resultList.push('2');
         resultString = addItemToString('2');
-        displayResults();
+        displayResults(resultString);
     });
 
     $('#3').on('click', function() {
         resultList.push('3');
         resultString = addItemToString('3');
-        displayResults();
+        displayResults(resultString);
     });
 
     $('#4').on('click', function() {
         resultList.push('4');
         resultString = addItemToString('4');
-        displayResults();
+        displayResults(resultString);
     });
 
     $('#5').on('click', function() {
         resultList.push('5');
         resultString = addItemToString('5');
-        displayResults();
+        displayResults(resultString);
     });
 
     $('#6').on('click', function() {
         resultList.push('6');
         resultString = addItemToString('6');
-        displayResults();
+        displayResults(resultString);
     });
 
     $('#7').on('click', function() {
         resultList.push('7');
         resultString = addItemToString('7');
-        displayResults();
+        displayResults(resultString);
     });
 
     $('#8').on('click', function() {
         resultList.push('8');
         resultString = addItemToString('8');
-        displayResults();
+        displayResults(resultString);
     });
 
     $('#9').on('click', function() {
         resultList.push('9');
         resultString = addItemToString('9');
-        displayResults();
+        displayResults(resultString);
     });
 
     $('#decimalPoint').on('click', function() {
         resultList.push('.');
         resultString = addItemToString('.');
-        displayResults();
+        displayResults(resultString);
     });
 
     $('#C').on('click', function() {
         result = 0;
         resultString = '';
         resultList = [];
-        displayResults();
+        displayResults(result);
     });
 
     $('#add').on('click', function() {
@@ -88,7 +88,7 @@ function main() {
         resultList = [];
         isFirst = false;
         operator = 'add';
-        displayResults();
+        displayResults(resultString);
     });
 
     $('#substract').on('click', function() {
@@ -97,7 +97,7 @@ function main() {
         resultList = [];
         isFirst = false;
         operator = 'substract';
-        displayResults();
+        displayResults(resultString);
     });
 
     $('#multiply').on('click', function() {
@@ -106,7 +106,7 @@ function main() {
         resultList = [];
         isFirst = false;
         operator = 'multiply';
-        displayResults();
+        displayResults(resultString);
     });
 
     $('#divide').on('click', function() {
@@ -115,7 +115,7 @@ function main() {
         resultList = [];
         isFirst = false;
         operator = 'divide';
-        displayResults();
+        displayResults(resultString);
     });
 
     $('#modulus').on('click', function() {
@@ -124,7 +124,7 @@ function main() {
         resultList = [];
         isFirst = false;
         operator = 'modulus';
-        displayResults();
+        displayResults(resultString);
     });
 
     $('#equals').on('click', function() {
@@ -147,6 +147,7 @@ function main() {
                     result = firstNumber / secondNumber;
                 } else {
                     resultString = 'Division by zero error!';
+                    alert(resultString);
                 }
                 break;
             case 'modulus':
@@ -154,8 +155,8 @@ function main() {
                 break;
         }
         firstNumber = 0;
-        secondNumber = 0;    
-        displayResults();
+        secondNumber = 0;
+        displayResults(result);
     });
 }
 
@@ -165,8 +166,11 @@ function addItemToString(item) {
 
 function getNumberFromList(list) {
     var numberFromList = 0;
-    decimalPointPlace = list.length - list.indexOf('.') - 1;
-    list.splice(list.indexOf('.'), 1);
+    decimalPointPlace = 0;;
+    if (list.indexOf('.') !== -1) {
+        decimalPointPlace = list.length - list.indexOf('.') - 1;
+        list.splice(list.indexOf('.'), 1);
+    }
     for (i = 0; i < list.length; i++) {
         numberFromList = numberFromList + list[i] * Math.pow(10, list.length-i-1);
     }
@@ -174,14 +178,14 @@ function getNumberFromList(list) {
     return numberFromList;
 }
 
-function displayResults() {
+function displayResults(itemToDisplay) {
     document.getElementById('result').innerHTML = 'result: ' + result;
     document.getElementById('resultString').innerHTML = 'resultString: ' + resultString;
     document.getElementById('resultList').innerHTML = 'resultList: ' + resultList;
     document.getElementById('firstNumber').innerHTML = 'first number: ' + firstNumber;
     document.getElementById('secondNumber').innerHTML = 'second number: ' + secondNumber;
     document.getElementById('operator').innerHTML = 'operator: ' + operator;
-    document.getElementById('output').innerHTML = resultString;
+    document.getElementById('output').innerHTML = itemToDisplay;
 }
 
 $(document).ready(main);
