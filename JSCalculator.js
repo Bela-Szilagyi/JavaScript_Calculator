@@ -21,7 +21,6 @@ function main() {
     });
 
     $('.numberButton').on('click', function() {
-        console.log(this.id);
         handleClickedNumber(this.id);
     });
 
