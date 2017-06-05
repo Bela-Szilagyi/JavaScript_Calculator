@@ -24,6 +24,12 @@ table {
     margin: 0 auto;
 }
 
+th {
+    background-color: #E3F09B;
+    text-align: right;
+    padding-right: 5px;
+}
+
 td {
     width: 50px;
     text-align: center;
