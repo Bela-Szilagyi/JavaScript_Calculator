@@ -10,7 +10,13 @@ function main() {
     displayResults()
     document.getElementById('output').innerHTML = result;
 
-    $('#debugButton').click(function() {
+    $('#debug').click(function() {
+        var element = document.getElementById('debug');
+        if (element.value === 'Normal mode') {
+            element.value = 'Debug mode';
+        } else {
+            element.value = ('Normal mode');
+        }
         $('.debugMode').toggle();
     });
 
