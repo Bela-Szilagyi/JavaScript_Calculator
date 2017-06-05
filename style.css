@@ -44,3 +44,13 @@ p {
     margin: 0 auto;
     width: 120px;
 }
+
+.calculator {
+    float: left;
+    margin-left: 50px;
+}
+
+.toggle {
+    float: right;
+    margin-right: 50px;
+}
