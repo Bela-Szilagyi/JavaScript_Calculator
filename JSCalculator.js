@@ -4,7 +4,7 @@ var resultList = [];
 var isFirst = true;
 var firstNumber = 0;
 var secondNumber = 0;
-var operator = '';
+var operator = 'none';
 
 function main() {
     displayResults()
@@ -96,47 +96,32 @@ function main() {
     });
 
     $('#add').on('click', function() {
+        checkOperator('add');
         resultString = addItemToString('+');
-        firstNumber = getNumberFromList(resultList);
-        resultList = [];
-        isFirst = false;
-        operator = 'add';
         displayResults(resultString);
     });
 
     $('#substract').on('click', function() {
+        checkOperator('substract');
         resultString = addItemToString('-');
-        firstNumber = getNumberFromList(resultList);
-        resultList = [];
-        isFirst = false;
-        operator = 'substract';
         displayResults(resultString);
     });
 
     $('#multiply').on('click', function() {
+        checkOperator('multiply');
         resultString = addItemToString('*');
-        firstNumber = getNumberFromList(resultList);
-        resultList = [];
-        isFirst = false;
-        operator = 'multiply';
         displayResults(resultString);
     });
 
     $('#divide').on('click', function() {
+        checkOperator('divide');
         resultString = addItemToString('/');
-        firstNumber = getNumberFromList(resultList);
-        resultList = [];
-        isFirst = false;
-        operator = 'divide';
         displayResults(resultString);
     });
 
     $('#modulus').on('click', function() {
+        checkOperator('modulus');
         resultString = addItemToString('%');
-        firstNumber = getNumberFromList(resultList);
-        resultList = [];
-        isFirst = false;
-        operator = 'modulus';
         displayResults(resultString);
     });
 
@@ -169,6 +154,8 @@ function main() {
         }
         firstNumber = 0;
         secondNumber = 0;
+        operator = 'none';
+        resultString = ''
         displayResults(result);
     });
 }
@@ -199,6 +186,18 @@ function displayResults(itemToDisplay) {
     document.getElementById('secondNumber').innerHTML = 'second number: ' + secondNumber;
     document.getElementById('operator').innerHTML = 'operator: ' + operator;
     document.getElementById('output').innerHTML = itemToDisplay;
+}
+
+function checkOperator(clickedOperator) {
+    if (operator !== 'none') {
+        operator = clickedOperator;
+        resultString = resultString.slice(0, -1);
+    } else {
+        firstNumber = getNumberFromList(resultList);
+        resultList = [];
+        isFirst = false;
+        operator = clickedOperator;
+    }
 }
 
 $(document).ready(main);
