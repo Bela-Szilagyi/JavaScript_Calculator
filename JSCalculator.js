@@ -114,13 +114,13 @@ function getNumberFromList(list) {
 }
 
 function displayResults(itemToDisplay) {
-    document.getElementById('result').innerHTML = 'result: ' + result;
-    document.getElementById('resultString').innerHTML = 'resultString: ' + resultString;
-    document.getElementById('resultList').innerHTML = 'resultList: ' + resultList;
-    document.getElementById('firstNumber').innerHTML = 'first number: ' + firstNumber;
-    document.getElementById('secondNumber').innerHTML = 'second number: ' + secondNumber;
-    document.getElementById('operator').innerHTML = 'operator: ' + operator;
-    document.getElementById('output').innerHTML = itemToDisplay;
+    $('#result')[0].innerHTML = 'result: ' + result;
+    $('#resultString')[0].innerHTML = 'resultString: ' + resultString;
+    $('#resultList')[0].innerHTML = 'resultList: ' + resultList;
+    $('#firstNumber')[0].innerHTML = 'first number: ' + firstNumber;
+    $('#secondNumber')[0].innerHTML = 'second number: ' + secondNumber;
+    $('#operator')[0].innerHTML = 'operator: ' + operator;
+    $('#output')[0].innerHTML = itemToDisplay;
 }
 
 function handleOperator(clickedOperatorWord, clickedOperatorSign) {
