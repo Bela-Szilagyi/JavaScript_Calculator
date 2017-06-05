@@ -12,10 +12,10 @@ function main() {
 
     $('#debug').click(function() {
         var element = document.getElementById('debug');
-        if (element.value === 'Normal mode') {
-            element.value = 'Debug mode';
+        if (element.value === 'Switch to normal mode') {
+            element.value = 'Switch to debug mode';
         } else {
-            element.value = ('Normal mode');
+            element.value = ('Switch to normal mode');
         }
         $('.debugMode').toggle();
     });
