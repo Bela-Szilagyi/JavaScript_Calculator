@@ -81,8 +81,10 @@ function main() {
     });
 
     $('#decimalPoint').on('click', function() {
-        resultList.push('.');
-        resultString = addItemToString('.');
+        if (resultList[resultList.length-1] !== '.') {
+            resultList.push('.');
+            resultString = addItemToString('.');
+        }
         displayResults(resultString);
     });
 
