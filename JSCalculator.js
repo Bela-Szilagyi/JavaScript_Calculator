@@ -20,44 +20,9 @@ function main() {
         $('.debugMode').toggle();
     });
 
-    $('#0').on('click', function() {
-        handleClickedNumber('0')
-    });
-
-    $('#1').on('click', function() {
-        handleClickedNumber('1')
-   });
-
-    $('#2').on('click', function() {
-        handleClickedNumber('2')
-    });
-
-    $('#3').on('click', function() {
-        handleClickedNumber('3')
-    });
-
-    $('#4').on('click', function() {
-        handleClickedNumber('4')
-    });
-
-    $('#5').on('click', function() {
-        handleClickedNumber('5')
-    });
-
-    $('#6').on('click', function() {
-        handleClickedNumber('6')
-    });
-
-    $('#7').on('click', function() {
-        handleClickedNumber('7')
-    });
-
-    $('#8').on('click', function() {
-        handleClickedNumber('8')
-    });
-
-    $('#9').on('click', function() {
-        handleClickedNumber('9')
+    $('.numberButton').on('click', function() {
+        console.log(this.id);
+        handleClickedNumber(this.id);
     });
 
     $('#decimalPoint').on('click', function() {
