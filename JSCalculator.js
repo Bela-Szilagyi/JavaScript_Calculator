@@ -8,10 +8,10 @@ var operator = 'none';
 
 function main() {
     displayResults()
-    document.getElementById('output').innerHTML = result;
+    $('#output')[0].innerHTML = result;
 
     $('#debug').click(function() {
-        var element = document.getElementById('debug');
+        var element = $('#debug')[0];
         if (element.value === 'Switch to normal mode') {
             element.value = 'Switch to debug mode';
         } else {
@@ -21,63 +21,43 @@ function main() {
     });
 
     $('#0').on('click', function() {
-        resultList.push('0');
-        resultString = addItemToString('0');
-        displayResults(resultString);
+        handleClickedNumber('0')
     });
 
     $('#1').on('click', function() {
-        resultList.push('1');
-        resultString = addItemToString('1');
-        displayResults(resultString);
+        handleClickedNumber('1')
    });
 
     $('#2').on('click', function() {
-        resultList.push('2');
-        resultString = addItemToString('2');
-        displayResults(resultString);
+        handleClickedNumber('2')
     });
 
     $('#3').on('click', function() {
-        resultList.push('3');
-        resultString = addItemToString('3');
-        displayResults(resultString);
+        handleClickedNumber('3')
     });
 
     $('#4').on('click', function() {
-        resultList.push('4');
-        resultString = addItemToString('4');
-        displayResults(resultString);
+        handleClickedNumber('4')
     });
 
     $('#5').on('click', function() {
-        resultList.push('5');
-        resultString = addItemToString('5');
-        displayResults(resultString);
+        handleClickedNumber('5')
     });
 
     $('#6').on('click', function() {
-        resultList.push('6');
-        resultString = addItemToString('6');
-        displayResults(resultString);
+        handleClickedNumber('6')
     });
 
     $('#7').on('click', function() {
-        resultList.push('7');
-        resultString = addItemToString('7');
-        displayResults(resultString);
+        handleClickedNumber('7')
     });
 
     $('#8').on('click', function() {
-        resultList.push('8');
-        resultString = addItemToString('8');
-        displayResults(resultString);
+        handleClickedNumber('8')
     });
 
     $('#9').on('click', function() {
-        resultList.push('9');
-        resultString = addItemToString('9');
-        displayResults(resultString);
+        handleClickedNumber('9')
     });
 
     $('#decimalPoint').on('click', function() {
@@ -96,33 +76,23 @@ function main() {
     });
 
     $('#add').on('click', function() {
-        checkOperator('add');
-        resultString = addItemToString('+');
-        displayResults(resultString);
+        handleOperator('add', '+');
     });
 
     $('#substract').on('click', function() {
-        checkOperator('substract');
-        resultString = addItemToString('-');
-        displayResults(resultString);
+        handleOperator('substract', '-');
     });
 
     $('#multiply').on('click', function() {
-        checkOperator('multiply');
-        resultString = addItemToString('*');
-        displayResults(resultString);
+        handleOperator('multiply', '*');
     });
 
     $('#divide').on('click', function() {
-        checkOperator('divide');
-        resultString = addItemToString('/');
-        displayResults(resultString);
+        handleOperator('divide', '/');
     });
 
     $('#modulus').on('click', function() {
-        checkOperator('modulus');
-        resultString = addItemToString('%');
-        displayResults(resultString);
+        handleOperator('modulus', '%');
     });
 
     $('#equals').on('click', function() {
@@ -166,7 +136,7 @@ function addItemToString(item) {
 
 function getNumberFromList(list) {
     var numberFromList = 0;
-    decimalPointPlace = 0;;
+    decimalPointPlace = 0;
     if (list.indexOf('.') !== -1) {
         decimalPointPlace = list.length - list.indexOf('.') - 1;
         list.splice(list.indexOf('.'), 1);
@@ -188,17 +158,24 @@ function displayResults(itemToDisplay) {
     document.getElementById('output').innerHTML = itemToDisplay;
 }
 
-function checkOperator(clickedOperator) {
+function handleOperator(clickedOperatorWord, clickedOperatorSign) {
     if (operator !== 'none') {
-        operator = clickedOperator;
+        operator = clickedOperatorWord;
         resultString = resultString.slice(0, -1);
     } else {
         firstNumber = getNumberFromList(resultList);
         isFirst = false;
-        operator = clickedOperator;
+        operator = clickedOperatorWord;
     }
     resultList = [];
+    resultString = addItemToString(clickedOperatorSign);
+    displayResults(resultString);
+}
 
+function handleClickedNumber(clickedNumber) {
+    resultList.push(clickedNumber);
+    resultString = addItemToString(clickedNumber);
+    displayResults(resultString);
 }
 
 $(document).ready(main);
