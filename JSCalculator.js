@@ -194,10 +194,11 @@ function checkOperator(clickedOperator) {
         resultString = resultString.slice(0, -1);
     } else {
         firstNumber = getNumberFromList(resultList);
-        resultList = [];
         isFirst = false;
         operator = clickedOperator;
     }
+    resultList = [];
+
 }
 
 $(document).ready(main);
